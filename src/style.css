@@ -1,0 +1,85 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #040404;
+}
+
+.settings {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 13px;
+  width: 200px;
+}
+.settings footer {
+  font-size: 11px;
+  color: #999;
+  margin-top: 20px;
+  word-break: break-all;
+}
+.settings footer a {
+  color: #999;
+}
+.settings h4 {
+  margin: 0 0 15px;
+  font-size: 16px;
+}
+
+.select-network {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 20px;
+}
+.select-network li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.select-network li:hover {
+  background-color: #f5f5f5;
+}
+.select-network li.active {
+  background-color: #eee;
+}
+.select-network .name {
+  margin: 0;
+}
+.select-network .color {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.settings label {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.settings button {
+  display: block;
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.settings button:last-child {
+  margin-bottom: 0;
+}
