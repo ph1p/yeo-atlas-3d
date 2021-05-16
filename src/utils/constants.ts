@@ -7,7 +7,7 @@ export const NETWORKS: Record<
   { name: string; mesh?: THREE.Mesh; color: number; position: number[] }
 > = {
   DAN: {
-    name: 'Dorsal Attention Network',
+    name: 'Dorsal Attention',
     color: 0x19c246,
     position: [-75, 155, -184],
   },

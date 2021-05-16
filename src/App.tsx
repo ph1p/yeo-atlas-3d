@@ -61,7 +61,9 @@ export const App = () => {
               className="color"
               style={{ backgroundColor: `#${net.color.toString(16)}` }}
             ></div>
-            <div className="name">{net.name}</div>
+            <div className="name">
+              {net.name} ({key})
+            </div>
           </li>
         ))}
       </ul>
