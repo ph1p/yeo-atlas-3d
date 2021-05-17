@@ -26,7 +26,10 @@ class Brain3D {
   // sceneHUD: THREE.Scene;
 
   private scene: THREE.Scene = new THREE.Scene();
-  renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
+    alpha: true,
+    preserveDrawingBuffer: true,
+  });
   controls: OrbitControls = new OrbitControls(
     this.camera,
     this.renderer.domElement
@@ -67,18 +70,16 @@ class Brain3D {
 
     if (animate) {
       new TWEEN.Tween(coords)
-        .to({ x, y, z }, 1000)
-        .easing(TWEEN.Easing.Quadratic.InOut)
-        .onUpdate(() => {
-          this.camera.position.x = coords.x;
-          this.camera.position.y = coords.y;
-          this.camera.position.z = coords.z;
-        })
+        .to({ x, y, z }, 2000)
+        .easing(TWEEN.Easing.Quartic.InOut)
+        .onUpdate(() =>
+          this.camera.position.copy(
+            new THREE.Vector3(coords.x, coords.y, coords.z)
+          )
+        )
         .start();
     } else {
-      this.camera.position.x = x;
-      this.camera.position.y = y;
-      this.camera.position.z = z;
+      this.camera.position.copy(new THREE.Vector3(x, y, z));
     }
   }
 
@@ -251,6 +252,14 @@ class Brain3D {
     }
   }
 
+  createScreenshot(e: any) {
+    const image = this.renderer.domElement
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream');
+
+    e.currentTarget.href = image;
+  }
+
   setHUD() {
     // HUD
     // this.sceneHUD = new THREE.Scene();
@@ -297,6 +306,11 @@ class Brain3D {
     // renderer.autoClear = false;
     // renderer.render(sceneHUD, cameraHUD);
     TWEEN.update();
+
+    // if (getImageData == true) {
+    //   imgData = this.renderer.domElement.toDataURL();
+    //   getImageData = false;
+    // }
   }
 }
 
