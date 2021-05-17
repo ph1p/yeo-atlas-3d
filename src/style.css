@@ -134,6 +134,7 @@ button {
   background-color: #fff;
   transition: transform 0.3s;
   text-decoration: none;
+  font-size: 12px;
 }
 
 a.button:hover,
