@@ -20,6 +20,12 @@ body {
   width: 220px;
   bottom: 0;
   max-height: calc(100% - 40px);
+
+  h4 {
+    margin: 0 0 15px;
+    font-size: 16px;
+  }
+
   &.offcanvas {
     transform: translateX(-245px);
   }
@@ -75,10 +81,6 @@ body {
 
     a {
       color: #999;
-    }
-    h4 {
-      margin: 0 0 15px;
-      font-size: 16px;
     }
   }
 }
