@@ -60,97 +60,105 @@ export const App = () => {
       >
         {showMenu ? 'hide' : 'show menu'}
       </button>
-      <h4>Networks</h4>
-      <ul className="select-network">
-        {Object.entries(NETWORKS).map(([key, net]) => (
-          <li
-            className={(key as TNetworks) === network ? 'active' : ''}
-            onClick={() => {
-              if ((key as TNetworks) === network) {
-                Brain3DInstance.selectNetwork();
-                Brain3DInstance.setCamera(-394, 100, 242);
-                setNetwork(undefined);
-              } else {
-                Brain3DInstance.selectNetwork(key as TNetworks);
-                Brain3DInstance.setCamera.apply(Brain3DInstance, [
-                  ...net.position,
-                  true,
-                ] as any);
-                setNetwork(key as TNetworks);
-              }
-            }}
-          >
-            <div
-              className="color"
-              style={{ backgroundColor: `#${net.color.toString(16)}` }}
-            ></div>
-            <div className="name">
-              {net.name} ({key})
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="content">
+        <h4>Networks</h4>
+        <ul className="select-network">
+          {Object.entries(NETWORKS).map(([key, net]) => (
+            <li
+              className={(key as TNetworks) === network ? 'active' : ''}
+              onClick={() => {
+                if ((key as TNetworks) === network) {
+                  Brain3DInstance.selectNetwork();
+                  Brain3DInstance.setCamera(-394, 100, 242);
+                  setNetwork(undefined);
+                } else {
+                  Brain3DInstance.selectNetwork(key as TNetworks);
+                  Brain3DInstance.setCamera.apply(Brain3DInstance, [
+                    ...net.position,
+                    true,
+                  ] as any);
+                  setNetwork(key as TNetworks);
+                }
+              }}
+            >
+              <div
+                className="color"
+                style={{ backgroundColor: `#${net.color.toString(16)}` }}
+              ></div>
+              <div className="name">
+                {net.name} ({key})
+              </div>
+            </li>
+          ))}
+        </ul>
 
-      <hr />
+        <hr />
 
-      <label>
-        Stop rotation
-        <input
-          type="checkbox"
-          checked={rotation}
-          onInput={() => setRotation(!rotation)}
-        />
-      </label>
-
-      <a
-        download="yeo-screen.png"
-        className="button"
-        onClick={(e) => Brain3DInstance.createScreenshot(e)}
-      >
-        Create Screenshot
-      </a>
-
-      <hr />
-
-      <h4>Clipping</h4>
-
-      {side && (
         <label>
-          Position
+          Stop rotation
           <input
-            type="range"
-            value={range}
-            min="-100"
-            max="100"
-            onInput={(e) => setRange(+e.currentTarget.value)}
+            type="checkbox"
+            checked={rotation}
+            onInput={() => setRotation(!rotation)}
           />
         </label>
-      )}
 
-      <button onClick={() => setSide(ClipDirection.LEFT)}>
-        Cut left hemispheres
-      </button>
-      <button onClick={() => setSide(ClipDirection.RIGHT)}>
-        Cut right hemispheres
-      </button>
-      <button onClick={() => setSide(ClipDirection.FRONT)}>Cut frontal</button>
-      <button onClick={() => setSide(ClipDirection.TOP)}>Cut upper half</button>
-
-      {side && (
-        <button onClick={() => setSide(undefined)}>Show complete brain</button>
-      )}
-
-      <hr />
-      <footer>
-        Based on the{' '}
         <a
-          target="_blank"
-          href="https://surfer.nmr.mgh.harvard.edu/fswiki/CorticalParcellation_Yeo2011"
+          download="yeo-screen.png"
+          className="button"
+          onClick={(e) => Brain3DInstance.createScreenshot(e)}
         >
-          CorticalParcellation_Yeo2011
-        </a>{' '}
-        data. Created by Philip Stapelfeldt
-      </footer>
+          Create Screenshot
+        </a>
+
+        <hr />
+
+        <h4>Clipping</h4>
+
+        {side && (
+          <label>
+            Position
+            <input
+              type="range"
+              value={range}
+              min="-100"
+              max="100"
+              onInput={(e) => setRange(+e.currentTarget.value)}
+            />
+          </label>
+        )}
+
+        <button onClick={() => setSide(ClipDirection.LEFT)}>
+          Cut left hemispheres
+        </button>
+        <button onClick={() => setSide(ClipDirection.RIGHT)}>
+          Cut right hemispheres
+        </button>
+        <button onClick={() => setSide(ClipDirection.FRONT)}>
+          Cut frontal
+        </button>
+        <button onClick={() => setSide(ClipDirection.TOP)}>
+          Cut upper half
+        </button>
+
+        {side && (
+          <button onClick={() => setSide(undefined)}>
+            Show complete brain
+          </button>
+        )}
+
+        <hr />
+        <footer>
+          Based on the{' '}
+          <a
+            target="_blank"
+            href="https://surfer.nmr.mgh.harvard.edu/fswiki/CorticalParcellation_Yeo2011"
+          >
+            CorticalParcellation_Yeo2011
+          </a>{' '}
+          data. Created by Philip Stapelfeldt
+        </footer>
+      </div>
     </div>
   );
 };
