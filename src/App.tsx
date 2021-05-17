@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Brain3DInstance } from './brain/Brain3D';
 import { ClipDirection, NETWORKS, TNetworks } from './utils/constants';
 
-import './style.css';
+import './style.scss';
 
 export const App = () => {
   const [showMenu, setShowMenu] = useState<boolean>(true);
