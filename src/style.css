@@ -35,6 +35,8 @@ body {
   padding: 12px;
   font-size: 13px;
   width: 200px;
+  max-height: calc(100vh - 70px);
+  overflow: auto;
 }
 .settings footer {
   font-size: 11px;
