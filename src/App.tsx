@@ -157,6 +157,11 @@ export const App = () => {
             CorticalParcellation_Yeo2011
           </a>{' '}
           data. Created by Philip Stapelfeldt
+          <br />
+          GitHub:{' '}
+          <a target="_blank" href="https://github.com/ph1p/yeo-atlas-3d">
+            https://github.com/ph1p/yeo-atlas-3d
+          </a>
         </footer>
       </div>
     </div>
