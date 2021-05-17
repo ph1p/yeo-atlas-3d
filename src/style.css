@@ -112,11 +112,13 @@ button {
   cursor: pointer;
   background-color: #fff;
   transition: transform 0.3s;
+  text-decoration: none;
 }
 
 a.button:hover,
 button:hover {
   color: #555;
+  text-decoration: none;
 }
 
 input[type='checkbox'] {
